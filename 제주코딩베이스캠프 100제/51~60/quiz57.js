@@ -20,10 +20,3 @@ for(let k of s) {
     }
 }
 console.log(count2);
-
-// 3
-let s2 = ''
-for(let i = 0; i < 1000; i++) {
-    s2 += i;
-}
-console.log(s2);

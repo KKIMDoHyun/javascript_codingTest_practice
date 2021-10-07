@@ -1,5 +1,6 @@
 // 버블 정렬은 두 인접한 원소를 검사하여 정렬하는 방법이다.
 // 빈 칸을 채워서 완성시켜라.
+// bubble sort
 
 function bubble(arr) {
     let result = arr.slice();
