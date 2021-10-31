@@ -4,6 +4,20 @@
         <title>출력결과</title>
     </head>
     <body>
+        <!--내 풀이-->
+        <script>
+            function solution(a, b, c){
+                let answer="YES", max;
+                let sum = a + b + c;
+                max = Math.max(a, b, c);
+
+                if(sum - max <= max) answer = "NO";
+                return answer;
+            }
+            console.log(solution(6, 7, 11));
+        </script>
+        
+        <!--강의 풀이-->
         <script>
             function solution(a, b, c){
             let answer="YES", max;
