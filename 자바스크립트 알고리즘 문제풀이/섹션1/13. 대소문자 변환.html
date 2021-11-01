@@ -8,7 +8,14 @@
         <script>
             function solution(s){  
                 let answer="";
-                
+                for(let i of s) {
+                    if(i === i.toUpperCase()) {
+                        answer += i.toLowerCase();
+                    }
+                    if(i === i.toLowerCase()) {
+                        answer += i.toUpperCase();
+                    }
+                }
                 return answer;
             }
 

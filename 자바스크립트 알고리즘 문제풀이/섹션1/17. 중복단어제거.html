@@ -7,8 +7,12 @@
         <!--내 풀이-->
         <script>
             function solution(s){  
-                let answer;
-                
+                let answer = [];
+                for(let i of str) {
+                    if(answer.indexOf(i) === -1) {
+                        answer.push(i)
+                    }
+                }
                 return answer;
             }
             let str=["good", "time", "good", "time", "student"];
