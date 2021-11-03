@@ -4,6 +4,31 @@
         <title>출력결과</title>
     </head>
     <body>
+        <!--내 풀이-->
+        <script>
+            function solution(s, t){
+                let answer=[];
+                let dist=1000;
+                let temp = [];
+                for(let i in s) {
+                    if(s[i] === t) temp.push(Number(i));
+                }
+                for(let i in s) {
+                  for(let t of temp) {
+                    dist = Math.min(dist, Math.abs(t - Number(i)));
+                  }
+                  answer.distush(dist);
+                  dist = 1000;
+                }
+
+                return answer;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+
+        <!--강의 풀이-->
         <script>
             function solution(s, t){
                 let answer=[];
@@ -34,3 +59,4 @@
         </script>
     </body>
 </html>
+

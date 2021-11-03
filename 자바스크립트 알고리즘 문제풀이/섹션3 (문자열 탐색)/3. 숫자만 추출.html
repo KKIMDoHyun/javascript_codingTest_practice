@@ -4,6 +4,23 @@
         <title>출력결과</title>
     </head>
     <body>
+        <!--내 풀이-->
+        <script>
+            function solution(str){
+                let answer="";
+                for(let i of str) {
+                    if(!isNaN(i)) {
+                        answer += i;
+                    }
+                }
+                return parseInt(answer, 10);
+            }
+            
+            let str="g0en2T0s8eSoft";
+            console.log(solution(str));
+        </script>
+
+        <!--강의 풀이-->
         <script>
             function solution(str){
                 let answer="";

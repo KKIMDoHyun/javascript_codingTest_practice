@@ -4,6 +4,22 @@
         <title>출력결과</title>
     </head>
     <body>
+        <!--내 풀이-->
+        <script>
+            function solution(s){
+                let answer="YES";
+                s = s.toLowerCase();
+                if(s !== s.split("").reverse().join("")) {
+                  answer = "NO";
+                }
+                return answer;
+            }
+            
+            let str="goooG";
+            console.log(solution(str));
+        </script>
+
+        <!--강의 풀이-->
         <script>
             function solution(s){
                 let answer="YES";

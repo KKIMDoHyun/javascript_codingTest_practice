@@ -4,6 +4,28 @@
         <title>출력결과</title>
     </head>
     <body>
+        <!--내 풀이-->
+        <script>
+            function solution(s){
+                let answer="YES";
+                let str = "";
+                s = s.toLowerCase();
+                for(let i of s) {
+                  if(("a" <= i && i <= "z") || ("A" <= i && i <= "Z")) {
+                    str += i;
+                  }
+                } 
+                if(str !== str.split("").reverse().join("")) {
+                  answer = "NO";
+                }
+                return answer;
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+        
+        <!--강의 풀이-->
         <script>
             function solution(s){
                 let answer="YES";
