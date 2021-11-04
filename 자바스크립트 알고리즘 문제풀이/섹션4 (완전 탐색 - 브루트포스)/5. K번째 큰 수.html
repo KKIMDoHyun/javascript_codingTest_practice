@@ -7,8 +7,19 @@
         <!--내 풀이-->
         <script>
             function solution(n, k, card){
-                let answer;
-                
+                let sum = [];
+                for(let i = 0; i < n; i++) {
+                  for(let j = i+1; j < n; j++) {
+                    for(let k = j+1; k < n; k++) {
+                      let card_sum = card[i] + card[j] + card[k];
+                      if(sum.indexOf(card_sum) === -1) {
+                        sum.push(card_sum);
+                      }
+                    }
+                  }
+                }
+                sum.sort((a,b) => b-a);
+                answer = sum[k-1];
                 return answer;
             }
             
