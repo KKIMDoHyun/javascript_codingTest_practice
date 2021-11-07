@@ -7,8 +7,22 @@
         <!--내 풀이-->
         <script>
             function solution(arr1, arr2){
-                let answer=[];
-                
+                let answer = [];
+                arr1.sort((a, b) => a - b);
+                arr2.sort((a, b) => a - b);
+                let index1 = 0;
+                let index2 = 0;
+                while (index1 < arr1.length && index2 < arr2.length) {
+                    if (arr1[index1] === arr2[index2]) {
+                        answer.push(arr1[index1]);
+                        index1++;
+                        index2++;
+                    } else if (arr1[index1] < arr2[index2]) {
+                        index1++;
+                    } else {
+                        index2++;
+                    }
+                }
                 return answer;
             }
             
