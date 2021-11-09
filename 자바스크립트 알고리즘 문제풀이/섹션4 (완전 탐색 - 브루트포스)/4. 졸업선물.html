@@ -6,33 +6,34 @@
     <body>
         <!--내 풀이-->
         <script>
-            function solution(m, product){
-                let answer=0;
+            function solution(m, product) {
+                let answer = 0;
                 let temp = m;
-                for(let p of product) {
-                  p[0] /= 2;
-                  let sum = [];
-                  for(let i of product) {
-                    sum.push(i[0] + i[1])
-                  }
-                  sum.sort((a,b)=> a-b);
-                  console.log(sum);
-                  let cnt = 0;
-                  for(let i = 0; i < sum.length; i++) {
-                    if(temp >= 0) {
-                      temp -= sum[i];
-                      cnt++;
+                for (let p of product) {
+                    p[0] /= 2;
+                    let sum = [];
+                    for (let i of product) {
+                    sum.push(i[0] + i[1]);
                     }
-                    if((temp < 0 || i === sum.length-1) && (cnt >= answer)){
-                       answer = cnt;
-                       break;
+                    sum.sort((a, b) => a - b);
+                    console.log("sum", sum);
+
+                    let cnt = 0;
+                    for (let i = 0; i < sum.length; i++) {
+                    if (temp - sum[i] >= 0) {
+                        temp -= sum[i];
+                        cnt++;
                     }
-                  }
-                  temp = m;
-                  p[0] *= 2;
+                    if ((temp < 0 || i === sum.length - 1) && cnt >= answer) {
+                        answer = cnt;
+                        break;
+                    }
+                    }
+                    temp = m;
+                    p[0] *= 2;
                 }
                 return answer;
-            }
+                }
             
             let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
             console.log(solution(28, arr));
