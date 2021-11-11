@@ -11,7 +11,7 @@
                 for(let rt = 0; rt < arr.length; rt++) {
                     sum += arr[rt];
                     while(sum > m) {
-                    sum -= arr[lt++];
+                        sum -= arr[lt++];
                     }
                     answer += (rt-lt+1);
                 }
