@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!--내 풀이 1-->
+        <script>
+            function solution(board, moves){
+                let answer = 0;
+                let stack = [];
+    
+                for(let move of moves) {
+                    let now = move - 1;
+                    for(let i = 0; i < board.length; i++) {
+                        if(board[i][now] != 0) {
+                            if(stack[stack.length-1] === board[i][now]) {
+                                stack.pop();
+                                answer += 2;
+                            }
+                            else {
+                                stack.push(board[i][now]);
+                            }
+                            board[i][now] = 0;
+                            break;
+                        }
+                    }
+                }
+                return answer;
+            }
+            
+            let a=[[0,0,0,0,0],
+                   [0,0,1,0,3],
+                   [0,2,5,0,1],
+                   [4,2,4,4,2],
+                   [3,5,1,3,1]];
+
+            let b=[1, 5, 3, 5, 1, 2, 1, 4];
+            console.log(solution(a, b));
+        </script>
+        <!--내 풀이 2-->
+        <script>
+            function solution(board, moves){
+                let answer = 0;
+                const new_board = [];
+                const result_arr = [];
+                
+                for(let i = 0; i < board[0].length; i++) {
+                    const arr = [];
+                    for(let j = 0; j < board.length; j++) {
+                        arr.push(board[j][i])
+                    }
+                    new_board.push(arr)
+                }
+                
+                
+                for(let i of moves) {
+                    let temp = 0;
+                    for(let j in new_board[i-1]){
+                        if(new_board[i-1][j] !== 0) {
+                            temp = new_board[i-1][j];
+                            new_board[i-1][j] = 0;
+                            break;
+                        }
+                    }
+                    if(temp !== 0){
+                        if(result_arr.length === 0 || result_arr[result_arr.length -1] !== temp) {
+                            result_arr.push(temp);
+                        } else {
+                            result_arr.pop();
+                            answer += 2;
+                        }
+                    }
+                } 
+                return answer;
+            }
+            
+            let a=[[0,0,0,0,0],
+                   [0,0,1,0,3],
+                   [0,2,5,0,1],
+                   [4,2,4,4,2],
+                   [3,5,1,3,1]];
+
+            let b=[1, 5, 3, 5, 1, 2, 1, 4];
+            console.log(solution(a, b));
+        </script>
+        
+        <!--강의 풀이-->
+        <script>
+            function solution(board, moves){
+                let answer=0;
+                let stack=[];
+                moves.forEach(pos => {
+                    for(let i=0; i<board.length; i++){
+                        if(board[i][pos-1]!==0){
+                            let tmp=board[i][pos-1];
+                            board[i][pos-1]=0;
+                            if(tmp===stack[stack.length-1]){
+                                stack.pop();
+                                answer+=2;
+                            }
+                            else stack.push(tmp);
+                            break;
+                        }
+                    }
+                });
+                                
+                return answer;
+            }
+            
+            let a=[[0,0,0,0,0],
+                   [0,0,1,0,3],
+                   [0,2,5,0,1],
+                   [4,2,4,4,2],
+                   [3,5,1,3,1]];
+
+            let b=[1, 5, 3, 5, 1, 2, 1, 4];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

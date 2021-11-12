@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!--내 풀이-->
+        <script>
+            function solution(s) {
+                let answer = "YES";
+                let cnt = 0;
+                for (let i of s) {
+                    if (i === "(") cnt++;
+                    if (i === ")") cnt--;
+                    if (cnt < 0) return "NO";
+                }
+                if (cnt !== 0) {
+                    return "NO";
+                }
+                return answer;
+            }
+
+            let a = "(()(()))(()";
+            console.log(solution(a));
+
+        </script>
+
+        <!--강의 풀이-->
+        <script>
+            function solution(s){
+                let answer="YES";
+                stack=[];
+                for(let x of s){
+                    if(x==='(') stack.push(x);
+                    else{
+                        if(stack.length===0) return "NO";
+                        stack.pop();
+                    }
+                }
+                if(stack.length>0) return "NO";  
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>
