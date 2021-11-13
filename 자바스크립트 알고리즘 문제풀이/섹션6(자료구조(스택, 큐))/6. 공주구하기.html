@@ -8,10 +8,20 @@
         <script>
             function solution(n, k){
                 let answer;
-                
+                let king = [];
+                for (let i = 0; i < n; i++) {
+                    king.push(i + 1);
+                }
+
+                while(king.length !== 1) {
+                    for (let i = 0; i < k-1; i++) {
+                        king.push(king.shift());
+                    }
+                    king.shift();
+                }
+                answer = king[0];
                 return answer;
             }
-
             console.log(solution(8, 3));
         </script>
 

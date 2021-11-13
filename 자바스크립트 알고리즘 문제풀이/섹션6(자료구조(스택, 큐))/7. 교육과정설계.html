@@ -8,7 +8,17 @@
         <script>
             function solution(need, plan){
                 let answer="YES";
-                
+                need = need.split("");
+                for(let i of plan) {
+                    if(need.includes(i)) {
+                        if(i !== need.shift()) {
+                            return "NO";
+                        }
+                    }
+                }
+                if(need.length > 0) {
+                    return "NO";
+                }
                 return answer;
             }
 
