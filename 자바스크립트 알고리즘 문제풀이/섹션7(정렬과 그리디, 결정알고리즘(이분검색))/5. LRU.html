@@ -7,8 +7,16 @@
         <!--내 풀이-->
         <script>
             function solution(size, arr){
-                
-
+                let answer = [];
+                for(let i in arr) {
+                  if(answer.indexOf(arr[i]) === -1) {
+                    if(answer.length >= size) answer.pop();
+                    answer.unshift(arr[i]);
+                  } else {
+                    answer.splice(answer.indexOf(arr[i]), 1);
+                    answer.unshift(arr[i]);
+                  }
+                }
                 return answer;
             }
 

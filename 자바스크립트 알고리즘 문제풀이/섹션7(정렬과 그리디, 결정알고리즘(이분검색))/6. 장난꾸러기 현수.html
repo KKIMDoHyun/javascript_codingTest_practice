@@ -8,7 +8,14 @@
         <script>
             function solution(arr){
                 let answer=[];
-                
+                let s_arr = arr.slice();
+                s_arr.sort((a,b) => a-b);
+                for(let i = 0; i < arr.length; i++) {
+                  console.log(arr[i], s_arr[i])
+                  if(arr[i] !== s_arr[i]) {
+                    answer.push(i+1);
+                  }
+                }
                 return answer;
             }
 
