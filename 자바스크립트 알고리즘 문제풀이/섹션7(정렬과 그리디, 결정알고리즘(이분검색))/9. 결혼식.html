@@ -9,7 +9,24 @@
             function solution(times){
                 let answer=Number.MIN_SAFE_INTEGER;
                 let T_line=[];
-                
+                for(let time of times) {
+                  T_line.push([time[0], 's']);
+                  T_line.push([time[1], 'e']);
+                }
+                T_line.sort((a, b) => {
+                  if(a[0] === b[0]) return a[1].charCodeAt()-b[1].charCodeAt();
+                  else return a[0] - b[0];
+                })
+                console.log(T_line);
+                let cnt = 0;
+                for(let i of T_line) {
+                  if(i[1] === 's') {
+                    cnt++;
+                  } else {
+                    cnt--;
+                  }
+                  answer = Math.max(cnt, answer);
+                }
                 return answer;
             }
 
