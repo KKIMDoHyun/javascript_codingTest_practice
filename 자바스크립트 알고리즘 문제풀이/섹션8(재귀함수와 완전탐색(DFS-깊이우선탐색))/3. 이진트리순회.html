@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!--내 풀이-->
+        <script>
+            function solution(n){
+                let answer="";
+                function dfs(v){
+                    if(v > 7) return;
+                    else {
+                        answer += v + " ";
+                        dfs(2*v);
+                        dfs(2*v+1);
+                    }
+                }
+                dfs(n);
+                return answer;
+            }
+
+            console.log(solution(1));
+        </script>
+        
+        <!--강의 풀이-->
+        <script>
+            function solution(n){
+                let answer="";
+                function DFS(v){
+                    if(v>7) return;
+                    else{
+                        answer+=(v+' ');
+                        DFS(v*2);
+                        DFS(v*2+1);
+                    }
+                }
+                DFS(n);
+                return answer;
+            }
+
+            console.log(solution(1));
+        </script>
+    </body>
+</html>
