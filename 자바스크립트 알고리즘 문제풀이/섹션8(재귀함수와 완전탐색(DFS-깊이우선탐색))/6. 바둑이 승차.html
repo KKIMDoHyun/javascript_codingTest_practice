@@ -8,7 +8,36 @@
         <script>
             function solution(c, arr){
                 let answer=Number.MIN_SAFE_INTEGER;
-                
+                function dfs(v, sum) {
+                    if(sum > c) return;
+                    if(v === arr.length) {
+                        answer = Math.max(answer, sum);
+                    } else {
+                        dfs(v+1, sum + arr[v]);
+                        dfs(v+1, sum);
+                    }
+                }
+                dfs(0, 0);
+                /*let ch = Array.from({length:arr.length+1}, ()=>0);
+                function dfs(v) {
+                    if(v === arr.length) {
+                        let arr1 = []
+                        for(let i = 0; i < arr.length; i++) {
+                            if(ch[i]) arr1.push(arr[i]);
+                        }
+                        if(arr1.length > 0) {
+                            let arr1_sum = arr1.reduce((a,b)=>a+b);
+                            if(arr1_sum <= c) answer = Math.max(answer, arr1_sum);
+                            else return;
+                        }
+                    } else {
+                        ch[v] = 1;
+                        dfs(v+1);
+                        ch[v] = 0;
+                        dfs(v+1);
+                    }
+                }
+                dfs(0);*/
                 return answer;
             }
 
