@@ -5,7 +5,33 @@
     </head>
     <body>
         <!--내 풀이-->
+        <script>
+            function solution(m, arr){         
+                let answer=[];
+                let check=Array.from({length:n}, ()=>0);
+                let tmp=Array.from({length:m}, ()=>0);;
+                function dfs(v) {
+                    if(v === m) {
+                        console.log(tmp.slice());
+                    } else {
+                        for(let i = 0; i < arr.length; i++) {
+                            if(!ch[i]) {
+                                ch[i] = 1;
+                                tmp[v] = arr[i];
+                                dfs(v+1);
+                                ch[i] = 0;
+                            }
+                        }
+                    }
+                }
+                dfs(0);
+                return answer;
+            }
 
+            let arr=[3, 6, 9];
+            console.log(solution(2, arr));
+        </script>
+        
         <!--강의 풀이-->
         <script>
             function solution(m, arr){         
