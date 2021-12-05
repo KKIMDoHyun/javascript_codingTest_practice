@@ -8,7 +8,21 @@
         <script>
             function solution(n, m){         
                 let answer=[];
-                
+                let temp = [];
+                for(let i = 0; i < m; i++) {
+                    temp.push(0);
+                }
+                function dfs(v, s) {
+                    if(v === m) {
+                        answer.push(temp.slice());
+                    } else {
+                        for(let i = s; i <= n; i++) {
+                            temp[v] = i;
+                            dfs(v+1, i+1)
+                        }
+                    }
+                }
+                dfs(0, 1);
                 return answer;
             }
 
